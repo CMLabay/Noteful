@@ -1,0 +1,9 @@
+.deleteBtn{
+    border:1px solid black;
+    margin:3px;
+}
+.noteItem{
+    width: 500px;
+    border:1px solid black;
+    margin-bottom:5px;
+}

@@ -1,0 +1,12 @@
+ul{
+    list-style:none;
+    margin-left:2px;
+    padding-left: 0;
+}
+.FolderItem{
+    border: 1px solid black;
+    margin-top:3px;
+    padding: 5px;
+    font-size:25px;
+    text-indent:0px;
+}

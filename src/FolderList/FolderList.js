@@ -6,19 +6,19 @@ class FolderList extends Component{
     render(){
         return(
             <ul>
-                <li className='FolderItem'>
-                    <Folder></Folder>
-                </li>
-                <li className='FolderItem'>
-                    <Folder></Folder>
-                </li>
-                <li className='FolderItem'> 
-                    <Folder></Folder>
-                </li>
-                <li className='FolderItem'>
-                    <Folder></Folder>
-                </li>
-            </ul>
+            {Object.keys(this.props.folders)
+                .map(key => {
+                    return(
+                        <li className='FolderItem'>
+                            <Folder
+                                key={key}
+                                id={this.props.folders[key].id}
+                                name={this.props.folders[key].name}
+                            /> 
+                        </li>  
+                    )
+                })}
+            </ul>    
         )
     }
 }

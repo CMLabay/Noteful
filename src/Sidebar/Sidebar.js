@@ -4,11 +4,12 @@ import './Sidebar.css';
 
 class Sidebar extends Component{
     render(){
+        console.log('this.props.folders ', this.props.folders)
         return(
-        <div className='sideBar'>
-            <FolderList></FolderList>
-            <div className='addNew sideBar'>Add New</div>
-        </div>)
+            <div className='sideBar'>
+                <FolderList folders={this.props.folders}></FolderList>              
+                <div className='addNew sideBar'>Add New</div>
+            </div>)
     }
 }
 

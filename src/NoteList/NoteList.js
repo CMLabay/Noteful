@@ -7,15 +7,20 @@ class NoteList extends Component{
         return(
             <div className='noteList'>
                 <ul>
-                    <li>
-                        <Note></Note>
-                    </li>
-                    <li>
-                        <Note></Note>
-                    </li>
-                    <li>
-                        <Note></Note>
-                    </li>
+                    {Object.keys(this.props.notes)
+                    .map(key => {
+                        return(
+                            <li>
+                                <Note
+                                    key={key}
+                                    id={this.props.notes[key].id}
+                                    modified={this.props.notes[key].modified}
+                                    folderId={this.props.notes[key].folderId}
+                                    content={this.props.notes[key].content}
+                                ></Note>
+                            </li>
+                        )
+                    })}
                 </ul>
             </div>
         )

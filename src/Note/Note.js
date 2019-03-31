@@ -8,7 +8,7 @@ class Note extends Component{
                 className='noteItem' 
                 id={this.props.id}
                 folderId={this.props.folderId}>
-                <a href='' >{this.props.content}</a>
+                <a href='' >{this.props.name}</a>
                 <p>Date Modified:{this.props.modified}</p>
                 <button className='deleteBtn'>Delete</button>
             </div>

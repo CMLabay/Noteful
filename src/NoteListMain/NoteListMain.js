@@ -34,7 +34,7 @@ class NoteListMain extends Component {
             to='/add-note'
             className='NoteListMain__add-note-button'
           >
-            Note
+            Add Note!
           </button>
         </div>
       </section>

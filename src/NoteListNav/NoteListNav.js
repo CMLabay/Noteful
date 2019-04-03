@@ -28,7 +28,7 @@ class NoteListNav extends Component{
                         type='button'
                         className='NoteListNav__add-folder-button'
                     >
-                    Folder
+                    Add Folder
                     </button>
                 </div>
             </div>

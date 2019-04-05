@@ -35,26 +35,26 @@ export default class Note extends Component{
     render(){
         const { name, id, modified } = this.props
         return(
-            <div className='note'>
-                <h2 className='Note_title'>
-                    <Link to={`/note/${id}`}>
-                        {name}
-                    </Link>
-                </h2>
-                <button 
-                    className='Note__delete'
-                    onClick={this.handleClickDelete} 
-                    type='button'>Delete</button>
-                <div className='Note__dates'>
-                    <div className='Note__dates-modified'>
-                        Modified
-                        {' '}
-                        <span className='Date'>
-                            {modified}
-                        </span>
-                    </div>
-                </div>
-            </div>
+          <div className='note'>
+              <h2 className='Note_title'>
+                  <Link to={`/note/${id}`}>
+                      {name}
+                  </Link>
+              </h2>
+              <button 
+                  className='Note__delete'
+                  onClick={this.handleClickDelete}
+                  type='button'>Delete</button>
+              <div className='Note__dates'>
+                  <div className='Note__dates-modified'>
+                      Modified
+                      {' '}
+                      <span className='Date'>
+                          {modified}
+                      </span>
+                  </div>
+              </div>
+          </div>
         )
     }
 }

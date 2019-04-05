@@ -20,6 +20,7 @@ export default class AddNote extends Component {
     }
   }
   render() {
+    console.log('inside of Addnote ')
     const { folders=[] } = this.context
     return (
       <section className='AddNote'>
@@ -52,7 +53,7 @@ export default class AddNote extends Component {
           </div>
           <div className='buttons'>
             <button type='submit'>
-              Add note
+              Add new note
             </button>
           </div>
         </NotefulForm>

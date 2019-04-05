@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Route} from 'react-router-dom';
 import Header from './Header/Header';
-import NotePageNav from './NotePageNav/NotePageNav'
+import NotePageNav from './NotePageNav/NotePageNav';
 import NoteListNav from './NoteListNav/NoteListNav';
 import NoteListMain from './NoteListMain/NoteListMain';
 import NotePageMain from './NotePageMain/NotePageMain';
-import AddFolder from './AddFolder/AddFolder'
+import AddFolder from './AddFolder/AddFolder';
 import AddNote from './AddNote/AddNote';
-import NoteContext from './NoteContext.js'
+import NoteContext from './NoteContext.js';
 
 
 class App extends Component {
@@ -41,6 +41,15 @@ class App extends Component {
       })
   }
 
+  handleAddFolder = folder => {
+    console.log('folder ',folder)
+    this.setState({
+      folders: [
+        ...this.state.folders,
+        folder
+      ]
+    })
+  }
   handleDeleteNote = noteId => {
     this.setState({
       notes: this.state.notes.filter(note => note.id !== noteId)
@@ -64,7 +73,7 @@ class App extends Component {
           component={NotePageNav}
         />
         <Route
-          path='/add=folder'
+          path='/add-folder'
           component={NotePageNav}
         />
         <Route
@@ -105,6 +114,7 @@ class App extends Component {
       notes: this.state.notes,
       folders: this.state.folders,
       deleteNote: this.handleDeleteNote,
+      addFolder: () => console.log('hello world'),
     }
     return (
       <NoteContext.Provider value={contextValue}>

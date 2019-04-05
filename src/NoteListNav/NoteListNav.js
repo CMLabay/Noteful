@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import {NavLink, Link} from 'react-router-dom'
-import { countNotesForFolder } from '../notes-helpers'
+import {NavLink} from 'react-router-dom'
 import NoteContext from '../NoteContext.js'
+import LinkButton from '../LinkButton/LinkButton.js'
+
 
 class NoteListNav extends Component{
     static contextType = NoteContext;
@@ -22,14 +23,12 @@ class NoteListNav extends Component{
                     )}
                 </ul>
                 <div className='NoteListNav__button-wrapper'>
-                    <button
-                        tag={Link}
+                    <LinkButton
                         to='/add-folder'
-                        type='button'
                         className='NoteListNav__add-folder-button'
                     >
                     Add Folder
-                    </button>
+                    </LinkButton>
                 </div>
             </div>
         )

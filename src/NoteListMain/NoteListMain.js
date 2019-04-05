@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import Note from '../Note/Note'
 import NoteContext from '../NoteContext'
 import { getNotesForFolder } from '../notes-helpers'
+import LinkButton from '../LinkButton/LinkButton.js'
 
 class NoteListMain extends Component {
   static defaultProps = {
@@ -29,13 +29,12 @@ class NoteListMain extends Component {
           )}
         </ul>
         <div className='NoteListMain__button-container'>
-          <button
-            tag={Link}
+          <LinkButton
             to='/add-note'
             className='NoteListMain__add-note-button'
           >
             Add Note!
-          </button>
+          </LinkButton>
         </div>
       </section>
     )

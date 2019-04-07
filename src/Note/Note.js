@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import './Note.css'
-import NoteContext from './NoteContext.js'
+import NoteContext from '../NoteContext.js'
 
 export default class Note extends Component{
     static defaultProps = {

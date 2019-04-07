@@ -18,6 +18,7 @@ class App extends Component {
 
   componentDidMount() {
     //fetch folders from the api
+    console.log('CDM')
     Promise.all([
       fetch(`http://localhost:9090/notes`),
       fetch(`http://localhost:9090/folders`)
@@ -74,11 +75,11 @@ class App extends Component {
         />
         <Route
           path='/add-folder'
-          component={NotePageNav}
+          component={AddFolder}
         />
         <Route
           path='/add-note'
-          component={NotePageNav}
+          component={AddNote}
         />
       </>
     )
@@ -124,7 +125,7 @@ class App extends Component {
             {this.renderNavRoutes()}
           </nav>
           <main className='App__main'>
-            {this.renderMainRoutes()}
+            {this.renderMainRoutes()} 
           </main>
         </div>
       </NoteContext.Provider>

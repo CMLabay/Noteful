@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import NotefulForm from '../NotefulForm/NotefulForm'
-import NoteContext from '../Note/NoteContext.js'
+import NoteContext from '../NoteContext.js'
 
 export default class AddFolder extends Component {
   static defaultProps = {
@@ -29,7 +29,7 @@ handleSubmit= e => {
   .then(folder => {
     console.log('ts', this.context)
     this.context.addFolder(folder)
-    //this.props.history.push(`/folder/${folder.id}`)
+    this.props.history.push(`/folder/${folder.id}`)
   })
   .catch(error => {
     console.error('add folder ',{ error })

@@ -89,7 +89,7 @@ class App extends Component {
         />
         <Route
           path='/add-note'
-          component={AddNote}
+          component={NotePageNav}
         />
       </>
     )
@@ -115,7 +115,7 @@ class App extends Component {
       />
       <Route
         path='/add-note'
-        component={NotePageNav}
+        component={AddNote}
       />
     </>
     )

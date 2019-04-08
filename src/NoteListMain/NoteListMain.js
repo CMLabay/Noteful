@@ -3,6 +3,7 @@ import Note from '../Note/Note'
 import NoteContext from '../NoteContext'
 import { getNotesForFolder } from '../notes-helpers'
 import LinkButton from '../LinkButton/LinkButton.js'
+import LoadingError from '../LoadingError';
 
 class NoteListMain extends Component {
   static defaultProps = {
@@ -20,11 +21,13 @@ class NoteListMain extends Component {
         <ul>
           {notesForFolder.map(note =>
             <li key={note.id}>
-              <Note
-                id={note.id}
-                name={note.name}
-                modified={note.modified}
-              />
+              <LoadingError key={note.id}>
+                <Note
+                  id={note.id}
+                  name={note.name}
+                  modified={note.modified}
+                />
+              </LoadingError>
             </li>
           )}
         </ul>

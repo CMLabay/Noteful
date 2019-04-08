@@ -27,12 +27,10 @@ export default class AddNote extends Component {
     let hasError = false;
 
     fieldValue = fieldValue.trim();
-    console.log('fieldlength ', fieldValue.length)
     if(fieldValue.length === 0) {
       fieldErrors.name = 'Name is required';
       hasError = true;
     }
-    console.log('mess ', fieldErrors.name)
     this.setState({
       validationMessages: fieldErrors,
       nameValid: !hasError
@@ -55,7 +53,6 @@ export default class AddNote extends Component {
       folderId: e.target['note-folder-id'].value,
       modified: new Date(),
     }
-    //this.setState({name}, () => {this.validateName(newNote.name)})
     fetch('http://localhost:9090/notes/', {
       method: 'POST',
       headers: {
@@ -64,13 +61,11 @@ export default class AddNote extends Component {
       body: JSON.stringify(note)
     })
     .then(res => {
-      console.log('note res', res)
       if(!res.ok)
         return res.json().then(e => Promise.reject(e))
       return res.json()
     })
     .then(note => {
-      console.log('note context', this.context)
       this.context.addNote(note)
       this.props.history.push(`./notes/${note.id}`)
     })
@@ -81,8 +76,6 @@ export default class AddNote extends Component {
 
   render() {
     const { folders=[] } = this.context
-    console.log('this.state.name ', this.state.name)
-    console.log('this.state.validationMessages.name ', this.state.validationMessages.name)
     return (
       <section className='AddNote'>
         <h2>Create a note</h2>

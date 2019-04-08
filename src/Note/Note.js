@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import './Note.css'
 import NoteContext from '../NoteContext.js'
+import PropTypes from 'prop-types'
 
 export default class Note extends Component{
     static defaultProps = {
@@ -32,6 +33,7 @@ export default class Note extends Component{
             })
     }
     render(){
+      console.log('props ',this.props)
         const { name, id, modified } = this.props
         return(
           <div className='note'>
@@ -57,3 +59,8 @@ export default class Note extends Component{
         )
     }
 }
+Note.propTypes = {
+  modified: PropTypes.string,
+  name: PropTypes.string,
+  id: PropTypes.string,
+};

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Route} from 'react-router-dom';
-import Header from './Header/Header';
-import NotePageNav from './NotePageNav/NotePageNav';
-import NoteListNav from './NoteListNav/NoteListNav';
-import NoteListMain from './NoteListMain/NoteListMain';
-import NotePageMain from './NotePageMain/NotePageMain';
-import AddFolder from './AddFolder/AddFolder';
-import AddNote from './AddNote/AddNote';
-import NoteContext from './NoteContext.js';
+import Header from '../Header/Header';
+import NotePageNav from '../NotePageNav/NotePageNav';
+import NoteListNav from '../NoteListNav/NoteListNav';
+import NoteListMain from '../NoteListMain/NoteListMain';
+import NotePageMain from '../NotePageMain/NotePageMain';
+import AddFolder from '../AddFolder/AddFolder';
+import AddNote from '../AddNote/AddNote';
+import NoteContext from '../NoteContext.js';
+import './App.css'
 
 
 class App extends Component {
@@ -131,7 +132,7 @@ class App extends Component {
     return (
       <NoteContext.Provider value={contextValue}>
         <div className='App'>
-          <Header></Header>
+          <Header ></Header>
           <nav className="App__nav">
             {this.renderNavRoutes()}
           </nav>

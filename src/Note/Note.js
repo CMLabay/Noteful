@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import './Note.css'
+import { format } from 'date-fns'
 import NoteContext from '../NoteContext.js'
 import PropTypes from 'prop-types'
 
@@ -33,11 +34,10 @@ export default class Note extends Component{
             })
     }
     render(){
-      console.log('props ',this.props)
         const { name, id, modified } = this.props
         return(
-          <div className='note'>
-              <h2 className='Note_title'>
+          <div className='Note'>
+              <h2 className='Note__title'>
                   <Link to={`/note/${id}`}>
                       {name}
                   </Link>
@@ -51,7 +51,7 @@ export default class Note extends Component{
                       Modified
                       {' '}
                       <span className='Date'>
-                          {modified}
+                          {format(modified, 'Do MMM YYYY')}
                       </span>
                   </div>
               </div>

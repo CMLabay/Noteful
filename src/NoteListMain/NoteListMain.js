@@ -3,7 +3,8 @@ import Note from '../Note/Note'
 import NoteContext from '../NoteContext'
 import { getNotesForFolder } from '../notes-helpers'
 import LinkButton from '../LinkButton/LinkButton.js'
-import LoadingError from '../LoadingError';
+import LoadingError from '../LoadingError'
+import './NoteListMain.css'
 
 class NoteListMain extends Component {
   static defaultProps = {

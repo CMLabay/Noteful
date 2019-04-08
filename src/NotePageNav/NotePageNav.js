@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import NoteContext from '../NoteContext'
 import { findNote, findFolder } from '../notes-helpers'
+import './NotePageNav.css'
 
 export default class NotePageNav extends Component{
     static defaultProps = {

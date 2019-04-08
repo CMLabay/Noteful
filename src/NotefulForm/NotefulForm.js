@@ -4,7 +4,7 @@ export default function NotefulForm(props) {
   const { className, ...otherProps } = props
   return (
     <form
-      onSubmit={props.onSubmit}
+      //onSubmit={props.onSubmit}
       className={['Noteful-form', className].join(' ')}
       action='#'
       {...otherProps}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import NotefulForm from '../NotefulForm/NotefulForm'
 import NoteContext from '../NoteContext.js'
+import './AddFolder.css'
 
 export default class AddFolder extends Component {
   static defaultProps = {
@@ -9,6 +10,7 @@ export default class AddFolder extends Component {
     }
 }
 static contextType = NoteContext;
+
 handleSubmit= e => {
   e.preventDefault()
   const folder = {

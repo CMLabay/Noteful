@@ -12,6 +12,7 @@ export default class NotePageNav extends Component{
         }
     }
     static contextType = NoteContext;
+    
     render(){
         const { folders, notes } = this.context
         const { noteId } = this.props.match.params

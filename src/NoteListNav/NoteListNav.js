@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {NavLink} from 'react-router-dom'
 import NoteContext from '../NoteContext.js'
 import LinkButton from '../LinkButton/LinkButton.js'
+import './NoteListNav.css'
 
 
 class NoteListNav extends Component{
@@ -36,6 +37,3 @@ class NoteListNav extends Component{
 }
 
 export default NoteListNav;
-NoteListNav.defaultProps = {
-    folders: []
-}

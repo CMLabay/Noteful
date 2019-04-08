@@ -51,6 +51,16 @@ class App extends Component {
       ]
     })
   }
+
+  handleAddNote = note => {
+    console.log('added note')
+    this.setState({
+      notes: [
+        ...this.state.notes,
+        note
+      ]
+    })
+  }
   handleDeleteNote = noteId => {
     this.setState({
       notes: this.state.notes.filter(note => note.id !== noteId)
@@ -75,7 +85,7 @@ class App extends Component {
         />
         <Route
           path='/add-folder'
-          component={AddFolder}
+          component={NotePageNav}
         />
         <Route
           path='/add-note'
@@ -104,8 +114,8 @@ class App extends Component {
         component={AddFolder}
       />
       <Route
-        path='add-note'
-        component={AddNote}
+        path='/add-note'
+        component={NotePageNav}
       />
     </>
     )
@@ -115,7 +125,8 @@ class App extends Component {
       notes: this.state.notes,
       folders: this.state.folders,
       deleteNote: this.handleDeleteNote,
-      addFolder: () => console.log('hello world'),
+      addFolder: this.handleAddFolder,
+      addNote: this.handleAddNote,
     }
     return (
       <NoteContext.Provider value={contextValue}>

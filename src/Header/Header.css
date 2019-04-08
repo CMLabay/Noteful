@@ -5,4 +5,5 @@ h1{
     color: rgb(75, 74, 74);
     border-bottom: 2px solid rgb(75, 74, 74);
     margin:0;
+    background-color:grey;
 }

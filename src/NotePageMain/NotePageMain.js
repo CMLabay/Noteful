@@ -14,7 +14,6 @@ export default class NotePageMain extends Component {
     const { notes } = this.context
     const { noteId } = this.props.match.params
     const note = findNote(notes, noteId) || { content: '' }
-    console.log('noet ', note)
     return (
       <section className='NotePageMain'>
         <Note

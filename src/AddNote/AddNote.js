@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import NotefulForm from '../NotefulForm/NotefulForm'
 import NoteContext from '../NoteContext'
-import ValidateNote from '../ValidateNote/ValidateNote'
+import ValidateForm from '../ValidateForm/ValidateForm'
 import './AddNote.css'
 
 export default class AddNote extends Component {
@@ -67,7 +67,7 @@ export default class AddNote extends Component {
     })
     .then(note => {
       this.context.addNote(note)
-      this.props.history.push(`./notes/${note.id}`)
+      this.props.history.push(`/`)
     })
     .catch(error => {
       console.log('add note ', {error})
@@ -85,7 +85,7 @@ export default class AddNote extends Component {
               Name
             </label>
             <input type='text' id='note-name-input' name='note-name' onChange={e => this.updateName(e.target.value)}/>
-            <ValidateNote className='validationError' hasError={!this.state.name} message={this.state.validationMessages.name}></ValidateNote>
+            <ValidateForm className='validationError' hasError={!this.state.name} message={this.state.validationMessages.name}></ValidateForm>
           </div>
           <div className='field'>
             <label htmlFor='note-content-input'>

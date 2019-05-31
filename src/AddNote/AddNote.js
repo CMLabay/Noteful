@@ -48,12 +48,12 @@ export default class AddNote extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const note = {
-      name: e.target['note-name'].value,
+      note_name: e.target['note-name'].value,
       content: e.target['note-content'].value,
-      folderId: e.target['note-folder-id'].value,
-      modified: new Date(),
+      folder_id: e.target['note-folder-id'].value,
+      modified_date: new Date(),
     }
-    fetch('http://localhost:9090/notes/', {
+    fetch('http://localhost:8001/api/notes/', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -101,7 +101,7 @@ export default class AddNote extends Component {
               <option value={null}>...</option>
               {folders.map(folder =>
                 <option key={folder.id} value={folder.id}>
-                  {folder.name}
+                  {folder.folder_name}
                 </option>
               )}
             </select>

@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import './Note.css'
 import { format } from 'date-fns'
 import NoteContext from '../NoteContext.js'
 import PropTypes from 'prop-types'
 
-export default class Note extends Component{
+class Note extends Component{
     static defaultProps = {
-        onDeleteNote: () => {},
+        history: {
+          push: () => { },
+          goBack: () => {}
+        },
     }
     static contextType = NoteContext;
 
     handleClickDelete = e => {
         e.preventDefault()
         const noteId = this.props.id
-        fetch(`http://localhost:9090/notes/${noteId}`, {
+        console.log('id', noteId)
+        fetch(`http://localhost:8001/api/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
               'content-type': 'application/json'
@@ -25,18 +29,19 @@ export default class Note extends Component{
                 return res.json().then(e => Promise.reject(e))
               return res.json()
             })
-            .then(() => {
-              this.context.deleteNote(noteId)
-              this.props.onDeleteNote(noteId)
+            .then(resJson => {
+              console.log('id2', resJson.noteId)
+              this.context.deleteNote(resJson.noteId)
+              this.props.history.push(`/`)
             })
             .catch(error => {
-              console.error({ error })
+              console.log('delete note ',{ error })
             })
-    }
+ }
     render(){
         const { name, id, modified } = this.props
-        console.log('date ', modified)
         return(
+          <form onSubmit={this.handleClickDelete}>
           <div className='Note'>
               <h2 className='Note__title'>
                   <Link to={`/note/${id}`}>
@@ -45,8 +50,7 @@ export default class Note extends Component{
               </h2>
               <button 
                   className='Note__delete'
-                  onClick={this.handleClickDelete}
-                  type='button'>Delete</button>
+                  type='submit'>Delete</button>
               <div className='Note__dates'>
                   <div className='Note__dates-modified'>
                       Modified
@@ -57,11 +61,13 @@ export default class Note extends Component{
                   </div>
               </div>
           </div>
+          </form>
         )
     }
 }
 Note.propTypes = {
   modified: PropTypes.string,
   name: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.number,
 };
+export default withRouter(Note)

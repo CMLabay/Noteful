@@ -16,7 +16,8 @@ class NoteListMain extends Component {
   render(){
     const { notes } = this.context
     const { folderId } = this.props.match.params
-    const notesForFolder = getNotesForFolder(notes, folderId)
+    const notesForFolder = getNotesForFolder(notes, parseInt(folderId))
+
     return (
       <section className='NoteListMain'>
         <ul>
@@ -25,8 +26,8 @@ class NoteListMain extends Component {
               <LoadingError key={note.id}>
                 <Note
                   id={note.id}
-                  name={note.name}
-                  modified={note.modified}
+                  name={note.note_name}
+                  modified={note.modified_date}
                 />
               </LoadingError>
             </li>

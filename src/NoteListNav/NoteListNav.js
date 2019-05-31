@@ -18,7 +18,7 @@ class NoteListNav extends Component{
                                 className='NoteListNav__folder-link'
                                 to={`/folder/${folder.id}`}
                             >
-                                {folder.name}
+                                {folder.folder_name}
                             </NavLink>
                         </li>
                     )}

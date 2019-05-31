@@ -48,9 +48,9 @@ updateName(name){
 handleSubmit= e => {
   e.preventDefault()
   const folder = {
-    name: e.target['folder-name'].value,
+    folder_name: e.target['folder-name'].value,
   }
-  fetch(`http://localhost:9090/folders/`, {
+  fetch(`http://localhost:8001/api/folders/`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json'

@@ -16,13 +16,42 @@ class App extends Component {
     notes: [],
     folders: [],
   };
-
+  static defaultProps = {
+    history: {
+      push: () => { },
+      goBack: () => {}
+    },
+}
   componentDidMount() {
     //fetch folders from the api
     console.log('CDM')
     Promise.all([
-      fetch(`http://localhost:9090/notes`),
-      fetch(`http://localhost:9090/folders`)
+      fetch(`http://localhost:8001/api/notes`),
+      fetch(`http://localhost:8001/api/folders`)
+    ])
+      .then(([notesRes, foldersRes]) => {
+        if (!notesRes.ok)
+          return notesRes.json().then(e => Promise.reject(e))
+        if (!foldersRes.ok)
+          return foldersRes.json().then(e => Promise.reject(e))
+
+        return Promise.all([
+          notesRes.json(),
+          foldersRes.json(),
+        ])
+      })
+      .then(([notes, folders]) => {
+        this.setState({ notes, folders })
+      })
+      .catch(error => {
+        console.error({ error })
+      })
+  }
+
+  updateList = () => {
+    Promise.all([
+      fetch(`http://localhost:8001/api/notes`),
+      fetch(`http://localhost:8001/api/folders`)
     ])
       .then(([notesRes, foldersRes]) => {
         if (!notesRes.ok)
@@ -54,7 +83,6 @@ class App extends Component {
   }
 
   handleAddNote = note => {
-    console.log('added note')
     this.setState({
       notes: [
         ...this.state.notes,
@@ -63,10 +91,16 @@ class App extends Component {
     })
   }
   handleDeleteNote = noteId => {
-    this.setState({
-      notes: this.state.notes.filter(note => note.id !== noteId)
-    })
     console.log('deleted')
+/*     this.setState({
+      notes: this.state.notes.filter(note => note.id !== noteId)
+    }) */
+    console.log('notes',this.state.notes)
+    console.log('noteid',noteId)
+    this.updateList()
+  }
+  componentDidUpdate(){
+
   }
 
   renderNavRoutes(){

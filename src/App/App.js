@@ -24,34 +24,13 @@ class App extends Component {
 }
   componentDidMount() {
     //fetch folders from the api
-    console.log('CDM')
-    Promise.all([
-      fetch(`http://localhost:8001/api/notes`),
-      fetch(`http://localhost:8001/api/folders`)
-    ])
-      .then(([notesRes, foldersRes]) => {
-        if (!notesRes.ok)
-          return notesRes.json().then(e => Promise.reject(e))
-        if (!foldersRes.ok)
-          return foldersRes.json().then(e => Promise.reject(e))
-
-        return Promise.all([
-          notesRes.json(),
-          foldersRes.json(),
-        ])
-      })
-      .then(([notes, folders]) => {
-        this.setState({ notes, folders })
-      })
-      .catch(error => {
-        console.error({ error })
-      })
+    this.updateList()
   }
 
   updateList = () => {
     Promise.all([
-      fetch(`http://localhost:8001/api/notes`),
-      fetch(`http://localhost:8001/api/folders`)
+      fetch(`https://intense-atoll-21251.herokuapp.com/api/notes`),
+      fetch(`https://intense-atoll-21251.herokuapp.com/api/folders`)
     ])
       .then(([notesRes, foldersRes]) => {
         if (!notesRes.ok)
@@ -73,7 +52,6 @@ class App extends Component {
   }
 
   handleAddFolder = folder => {
-    console.log('folder ',folder)
     this.setState({
       folders: [
         ...this.state.folders,
@@ -91,18 +69,8 @@ class App extends Component {
     })
   }
   handleDeleteNote = noteId => {
-    console.log('deleted')
-/*     this.setState({
-      notes: this.state.notes.filter(note => note.id !== noteId)
-    }) */
-    console.log('notes',this.state.notes)
-    console.log('noteid',noteId)
     this.updateList()
   }
-  componentDidUpdate(){
-
-  }
-
   renderNavRoutes(){
     return(
       <>

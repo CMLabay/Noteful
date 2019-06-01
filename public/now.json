@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias":"https://build.christinamlabay.now.sh",
+    "name": "noteful-app",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+    ]
+  }

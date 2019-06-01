@@ -18,7 +18,7 @@ class Note extends Component{
         e.preventDefault()
         const noteId = this.props.id
         console.log('id', noteId)
-        fetch(`http://localhost:8001/api/notes/${noteId}`, {
+        fetch(`https://intense-atoll-21251.herokuapp.com/api/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
               'content-type': 'application/json'

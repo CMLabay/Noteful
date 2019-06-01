@@ -53,7 +53,7 @@ export default class AddNote extends Component {
       folder_id: e.target['note-folder-id'].value,
       modified_date: new Date(),
     }
-    fetch('http://localhost:8001/api/notes/', {
+    fetch('https://intense-atoll-21251.herokuapp.com/api/notes/', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

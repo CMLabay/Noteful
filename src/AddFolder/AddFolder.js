@@ -50,7 +50,7 @@ handleSubmit= e => {
   const folder = {
     folder_name: e.target['folder-name'].value,
   }
-  fetch(`http://localhost:8001/api/folders/`, {
+  fetch(`https://intense-atoll-21251.herokuapp.com/api/folders/`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
